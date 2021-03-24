@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { name, address, image } from 'faker';
-import { FocusKeyManager } from '@angular/cdk/a11y';
-import { createPipeType } from '@angular/compiler/src/render3/r3_pipe_compiler';
 
 interface Card {
     title: string;
