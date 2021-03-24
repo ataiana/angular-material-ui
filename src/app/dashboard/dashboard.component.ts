@@ -1,33 +1,55 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { name, address, image } from 'faker';
+import { FocusKeyManager } from '@angular/cdk/a11y';
+import { createPipeType } from '@angular/compiler/src/render3/r3_pipe_compiler';
 
+interface Card {
+    title: string;
+    city: string;
+    country: string;
+    zipCode: string;
+    cols: number;
+    rows: number;
+}
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
-      }
 
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
-    })
-  );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+    /** Based on the screen size, switch from standard to one column per row */
+    cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+        map(({ matches }) => {
+            if (matches) {
+                return this.getData().map( (dataSet: Card) => 
+                    Object.assign( dataSet, { cols: 2 })    
+                )
+            }
+
+            return this.getData();
+        })
+    );
+
+    constructor(
+        private breakpointObserver: BreakpointObserver
+    ) { }
+
+    getData(): Card[] {
+        let data: Card[] = [];
+        for (let i=0; i <= 20; i++) {
+            data.push({
+                title: name.findName(),
+                city: address.city(),
+                country: address.country(),
+                zipCode: address.zipCode(),
+                cols: 1,
+                rows: 1
+            })
+        }
+        return data;
+    }
 }
