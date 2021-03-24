@@ -5,7 +5,6 @@ import { Component } from '@angular/core';
   template: `
   <app-navigation>
       <div>
-          AppComponent
           <router-outlet></router-outlet>
       </div>
   </app-navigation>
