@@ -1,6 +1,6 @@
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="250px">
+  <mat-grid-list cols="2" rowHeight="300px">
     <mat-grid-tile
         *ngFor="let card of cards | async"
         [colspan]="card.cols"
@@ -24,6 +24,17 @@
                 <mat-list-item> <b>City: </b> {{ card.city }} </mat-list-item>
                 <mat-list-item> <b>Country: </b> {{card.country}} </mat-list-item>
                 <mat-list-item> <b>ZipCode: </b> {{card.zipCode}} </mat-list-item>
+                <mat-list-item>
+                    <a
+                        mat-fab color="warn"
+                        aria-label="Map Icon"
+                        [routerLink]="['/user-location', {
+                            latitude: card.latitude,
+                            longitude: card.longitude
+                        }]"
+                    >
+                        <mat-icon>map</mat-icon>
+                    </a></mat-list-item>
             </mat-list>
         </mat-card-content>
       </mat-card>

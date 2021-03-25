@@ -8,6 +8,8 @@ interface Card {
     city: string;
     country: string;
     zipCode: string;
+    latitude: string;
+    longitude: string;
     cols: number;
     rows: number;
 }
@@ -44,6 +46,8 @@ export class DashboardComponent {
                 city: address.city(),
                 country: address.country(),
                 zipCode: address.zipCode(),
+                latitude: address.latitude(),
+                longitude: address.longitude(),
                 cols: 1,
                 rows: 1
             })

@@ -20,7 +20,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-    { path: 'dashboard', component: DashboardComponent },
+    {
+        path: 'dashboard',
+        component: DashboardComponent
+    },
+    { path: 'user-location', loadChildren: () => import('./user-location/user-location.module').then(m => m.UserLocationModule) },
     { path: '**', redirectTo: '/dashboard' },
 ];
 
