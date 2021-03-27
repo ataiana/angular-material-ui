@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-material-app": {
+    "angular-material-eleven": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -41,7 +41,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-material-app",
+            "outputPath": "dist/angular-material-eleven",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -90,22 +90,22 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-material-app:build"
+            "browserTarget": "angular-material-eleven:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-material-app:build:production"
+              "browserTarget": "angular-material-eleven:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-material-app:build"
+            "browserTarget": "angular-material-eleven:build"
           }
         }
       }
     }
   },
-  "defaultProject": "angular-material-app"
+  "defaultProject": "angular-material-eleven"
 }
