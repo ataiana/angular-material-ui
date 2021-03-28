@@ -2,7 +2,7 @@
   "name": "angular-material-eleven",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm install && npm run build && node server.js",
+    "start": "(npm install && npm run build && node server.js)",
     "build": "ng build --prod"
   },
   "private": true,
