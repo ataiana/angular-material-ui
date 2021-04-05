@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "(npm run install && npm run build && node server.js)",
-    "build": "ng build --prod"
+    "start": "(npm install && npm run build && npm run start-server)",
+    "build": "ng build --prod",
+    "start-server": "node server.js"
   },
   "private": true,
   "dependencies": {
