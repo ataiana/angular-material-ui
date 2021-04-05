@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { UserLocationComponent } from './user-location.component';
 import { AgmCoreModule } from '@agm/core';
+import { environment } from '../../environments/environment';
 
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     AgmCoreModule.forRoot({
-        apiKey: 'AIzaSyAAR7FmxXhxFDmJd36Aw--ULes4pYBDMvY'
+        apiKey: environment.googleApiKey
     }),
     RouterModule.forChild(routes)
   ]
