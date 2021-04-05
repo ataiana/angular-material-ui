@@ -7,11 +7,6 @@ app.get("/", function (req, res) {
 });
 
 process.env.PORT = process.env.PORT || 8080;
-process.env.GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || '';
-// Serve Google Api Key
-app.get("/maps", (req, res) => {
-  res.json({ mapsApi: process.env.GOOGLE_API_KEY });
-});
 
 app.listen(process.env.PORT, () =>
   console.log("Listening to port: " + process.env.PORT)
